@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Medallas Olímpicas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Registro de Medallas Olímpicas</h1>
+        <form action="register_medal.php" method="POST" class="mt-4">
+            <div class="mb-3">
+                <label for="pais" class="form-label">País</label>
+                <input type="text" class="form-control" id="pais" name="pais" required>
+            </div>
+            <div class="mb-3">
+                <label for="oro" class="form-label">Medallas de Oro</label>
+                <input type="number" class="form-control" id="oro" name="oro" required>
+            </div>
+            <div class="mb-3">
+                <label for="plata" class="form-label">Medallas de Plata</label>
+                <input type="number" class="form-control" id="plata" name="plata" required>
+            </div>
+            <div class="mb-3">
+                <label for="bronce" class="form-label">Medallas de Bronce</label>
+                <input type="number" class="form-control" id="bronce" name="bronce" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar Medallas</button>
+        </form>
+        <div class="mt-5 text-center">
+            <a href="view_medals.php" class="btn btn-success">Ver Medallero</a>
+        </div>
+    </div>
+</body>
+</html>
