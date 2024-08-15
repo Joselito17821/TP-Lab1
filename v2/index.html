@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Medallas - Juegos Olímpicos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .medal-input {
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Registro de Medallas - Juegos Olímpicos</h1>
+
+        <form id="medalForm" class="mt-4">
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label for="country" class="form-label">País</label>
+                    <input type="text" class="form-control" id="country" placeholder="Nombre del país" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="gold" class="form-label">Oro</label>
+                    <input type="number" class="form-control medal-input" id="gold" value="0" min="0" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="silver" class="form-label">Plata</label>
+                    <input type="number" class="form-control medal-input" id="silver" value="0" min="0" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="bronze" class="form-label">Bronce</label>
+                    <input type="number" class="form-control medal-input" id="bronze" value="0" min="0" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar Medallas</button>
+        </form>
+
+        <h2 class="mt-5">Resumen de Medallas</h2>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>País</th>
+                    <th>Oro</th>
+                    <th>Plata</th>
+                    <th>Bronce</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="medalTableBody">
+                <!-- Los datos se agregarán aquí -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('medalForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Obtener los valores del formulario
+            const country = document.getElementById('country').value;
+            const gold = parseInt(document.getElementById('gold').value);
+            const silver = parseInt(document.getElementById('silver').value);
+            const bronze = parseInt(document.getElementById('bronze').value);
+            const total = gold + silver + bronze;
+
+            // Crear una nueva fila en la tabla
+            const tableBody = document.getElementById('medalTableBody');
+            const newRow = document.createElement('tr');
+
+            newRow.innerHTML = `
+                <td>${country}</td>
+                <td>${gold}</td>
+                <td>${silver}</td>
+                <td>${bronze}</td>
+                <td>${total}</td>
+            `;
+
+            // Agregar la nueva fila a la tabla
+            tableBody.appendChild(newRow);
+
+            // Limpiar el formulario
+            document.getElementById('medalForm').reset();
+        });
+    </script>
+</body>
+</html>
